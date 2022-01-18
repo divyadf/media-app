@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Home - Update 24x7</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/fontawesome.min.css"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	<div class="container">
+		<br>
+	  <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+	  <!-- Brand -->
+	  <a class="navbar-brand" href="/">Update 24x7</a>
+	
+	  <!-- Toggler/collapsibe Button -->
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+	
+	  <!-- Navbar links -->
+	  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+		<ul class="navbar-nav">
+		  <li class="nav-item">
+			<a class="nav-link active" href="/">Home</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="/sports">Sports</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="/about">About Us</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="/contact">Contact Us</a>
+		  </li>
+		</ul>
+	  </div> 
+	</nav>
+	<div class="main-page">
+		<div class="full-width-div">
+			<div class="row main">
+			<div class="col-md-3"><%= weatherdata.weather[0].description %></div>
+			<div class="col-md-3"><img src="http://openweathermap.org/img/w/<%= weatherdata.weather[0].icon %>.png"/></div>
+			<div class="col-md-3"><%= Math.round(weatherdata.main.temp-273.15) %>&deg; C</div>
+			<div class="col-md-3"><%= city %></div>
+		</div>
+		</div>
+		<div class="row">
+			<div class="slideshow-container">
+				<% for( var i=0; i<3; i++) { %>
+				
+				<div class="mySlides fade">
+				  <div class="numbertext"><%= i+1 %> / 3</div>
+				  <img src="<%= data[i].url_to_image %>" style="width:100%">
+				  <div class="text">Caption Text</div>
+				</div>
+								
+				<% } %>
+				<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+				<a class="next" onclick="plusSlides(1)">&#10095;</a>
+				
+				</div>
+				<br>
+				
+				<div style="text-align:center">
+					<% for( var i=1; i<=3; i++) { %>
+						<span class="dot" onclick="currentSlide('<%= i %>')"></span> 
+					<% } %>
+				</div>
+				
+
+		</div>
+		<div class="row">
+			<% for( var i=0; i<3; i++) { %>
+				<div class="col-md-4">
+					<div class="grey-section">
+						<h2><%= data[i].title %></h2>
+						<p><%= data[i].description %></p>
+					</div>
+				</div>
+			<% } %>
+		</div>
+	<div class="row">
+		<div class="col-md-6">
+		<center>
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+		</center>
+		</div>
+		<div class="col-md-6">
+			<p>
+				<input id="nickText" type="text"/>
+				<button id="nick">Set Nickname</button>
+			</p>
+			<textarea style="height:300px;width:500px;"></textarea>
+			<p>
+				<input id="chatText" type="text"/>
+				<button id="chat">Send Chat Message</button>
+			</p>
+			
+		</div>
+	</div>
+	</div>
+</div>
+<footer>
+	<center><p>Copyright &copy; 2022</p></center>
+	<script src="js/main.js"></script>
+</footer>	
+</body>
+</html>

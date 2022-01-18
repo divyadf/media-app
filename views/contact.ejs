@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contact Us - Update 24x7</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/fontawesome.min.css"></script>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	<div class="container">
+		<br>
+	  <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+	  <!-- Brand -->
+	  <a class="navbar-brand" href="/">Update 24x7</a>
+	
+	  <!-- Toggler/collapsibe Button -->
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+	
+	  <!-- Navbar links -->
+	  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+		<ul class="navbar-nav">
+		  <li class="nav-item">
+			<a class="nav-link" href="/">Home</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="/sports">Sports</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="/about">About Us</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link active" href="/contact">Contact Us</a>
+		  </li>
+		</ul>
+	  </div> 
+	</nav>
+	<div class="main-page">
+		<div class="row">
+      <form action="/addQuery" method="POST">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" class="form-control" id="email" placeholder="Enter Email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="data">Query:</label>
+          <textarea class="form-control" id="query" name="query"></textarea>
+        </div>
+        <% if(status) { %>
+          <p class="<%= status %>"><%= message %></p>
+        <% } %>
+        <button type="submit" class="btn btn-primary">Add</button>
+        <a onclick="document.querySelector('form').reset()" class="btn btn-warning" role="button">RESET</a>
+      </form>               
+		</div>
+	</div>
+<footer>
+	<center><p>Copyright &copy; 2022</p></center>
+	<script src="js/main.js"></script>
+</footer>	
+</body>
+</html>
